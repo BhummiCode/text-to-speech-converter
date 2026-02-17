@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-Speech Converter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(6, 11, 80);
+            color: white;
+            font-size: 20px;
+            font-family: sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        header {
+            padding: 1em;
+            background-color: rgb(215, 119, 23);
+        }
+        header h1 {
+            margin: 0;
+            color: rgb(6, 11, 80);
+        }
+        #converter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30vh;
+        }
+        input {
+            width: 100vh;
+            height: 50px;
+            border-radius: 40px;
+            border: 4px solid rgb(215, 119, 23);
+            background-color: rgba(0, 3, 38, 0.99);
+            margin-right: 10px;
+            font-size: px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 0 1em;
+            color: aqua;
+
+        }
+        button {
+            width: 100px;
+            height: 45px;
+            border-radius: 20px;
+            border: 4px solid rgb(215, 119, 23);
+            background-color: rgb(8, 8, 7);
+            color: white;
+            font-size: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        #description {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2em;
+            background: #fff;
+            color: #000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        #description h2, #description h3 {
+            color: rgb(215, 119, 23);
+        }
+        #description ul, #description ol {
+            margin: 1em 0;
+            padding-left: 20px;
+        }
+        #description ul li, #description ol li {
+            margin-bottom: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Text-to-Speech Converter</h1>
+    </header>
+    <div id="converter">
+        <input id="input" type="text" placeholder="Enter text">
+        <button onclick="speak()">Speak</button>
+    </div>
+    <section id="description">
+        <h2>Welcome to Our Text-to-Speech Converter</h2>
+        <h3>About This Tool</h3>
+        <p>Our Text-to-Speech (TTS) Converter allows you to transform written text into spoken words. This tool leverages the power of modern web technologies to provide a seamless and interactive experience.</p>
+        <h3>Features</h3>
+        <ul>
+            <li><strong>Ease of Use</strong>: Simply input your text and hit the "Speak" button to hear it spoken aloud.</li>
+        </ul>
+        <h3>How It Works</h3>
+        <ol>
+            <li><strong>Enter Text</strong>: Type or paste the text you want to convert into the provided text area.</li>
+            <li><strong>Select Voice and Speed</strong>: Choose your preferred voice and adjust the speech speed using the available options.</li>
+            <li><strong>Button</strong>: Click the "Speak" button to hear your text spoken aloud.</li>
+            <li><strong>Listen</strong>: Your text will be converted to speech, and you can listen through your device's speakers or headphones.</li>
+        </ol>
+        <h3>Technologies Used</h3>
+        <p>This TTS converter is built using HTML for structure, CSS for styling, and JavaScript for functionality. It integrates with modern web APIs to deliver high-quality speech synthesis.</p>
+        <h3>Get Started</h3>
+        <p>Try out the text-to-speech converter now by entering some text and clicking the "Speak" button. We hope you find this tool helpful and enjoyable to use!</p>
+    </section>
+    <script>
+        function speak() {
+            var text = document.getElementById("input").value;
+            var speech = new SpeechSynthesisUtterance(text);
+            speech.voice = speechSynthesis.getVoices()[0];
+            speechSynthesis.speak(speech);
+        }
+    </script>
+</body>
+</html>
